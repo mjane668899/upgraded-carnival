@@ -1,0 +1,7 @@
+{
+  "name": "jello-1",
+  "private": true,
+  "dependencies": {
+    "feather-icons": "^4.28.0"
+  }
+}

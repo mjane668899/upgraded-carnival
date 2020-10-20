@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dy7z2bfg7
+  api_key: '977643392897252'
+  api_secret: Q_akDUNbNnsq7I1RrQzEUTbnngQ
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dy7z2bfg7
+  api_key: '977643392897252'
+  api_secret: Q_akDUNbNnsq7I1RrQzEUTbnngQ
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dy7z2bfg7
+  api_key: '977643392897252'
+  api_secret: Q_akDUNbNnsq7I1RrQzEUTbnngQ
+  enhance_image_tag: true
+  static_file_support: false
