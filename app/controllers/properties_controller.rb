@@ -1,6 +1,12 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_account!, only: [:new, :create,:destroy]
+  before_action :set_sidebar, except: [:show]
+  before_action :check_configuration
+
+  def check_configuration
+    render 'configuration_missing' if Cloudinary.config.api_key.blank?
+  end
 
   # GET /properties
   # GET /properties.json
@@ -11,6 +17,8 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
+    @agent = @property.account
+    @agent_properties = Property.where(account_id: @agent.id).where.not(id: @property.id)
   end
 
   # GET /properties/new
@@ -45,7 +53,7 @@ class PropertiesController < ApplicationController
     respond_to do |format|
       if @property.update(property_params)
         format.html { redirect_to @property, notice: 'Property was successfully updated.' }
-        format.json { render :show, status: :ok, location: @property }
+        format.json { render :show, status: :created, location: @property }
       else
         format.html { render :edit }
         format.json { render json: @property.errors, status: :unprocessable_entity }
@@ -63,14 +71,32 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def email_agent
+    agent_id = params[:agent_id]
+    first_name = params[:first_name]
+    last_name = params[:last_name]
+    email = params[:email]
+    message = params[:message]
+
+    ContactMailer.email_agent( agent_id, first_name, last_name, email, message).deliver_now
+
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_property
       @property = Property.find(params[:id])
     end
 
+    def set_sidebar
+      @show_sidebar = true
+    end
+
     # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:name, :address, :price, :rooms, :bathrooms, :photo, :photo_cache)
+      params.require(:property).permit(:name, :address, :price, :rooms, :bathrooms, :parking_spaces,:details, :photo, :photo_cache)
     end
 end

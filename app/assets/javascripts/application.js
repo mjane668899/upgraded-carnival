@@ -9,8 +9,27 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
-//= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+require("@rails/ujs").start()
+
+var jQuery = require("jquery")
+global.$ = global.jQuery = jQuery
+window.$ = window.jQuery = jQuery
+
+require ('json')
+require("bootstrap");
+require("@fortawesome/fontawesome-free");
+
+import toastr from "toastr";
+toastr.options = {
+  progressBar: true
+}
+global.toastr  = toastr;
+
+require("./includes/properties");
