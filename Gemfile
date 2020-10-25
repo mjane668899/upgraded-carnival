@@ -42,6 +42,7 @@ gem 'jquery-rails'
 gem 'webpacker', '~> 5.x'
 gem 'toastr-rails'
 gem 'feathericon-rails'
+gem 'feathericon-sass'
 gem 'font-awesome-sass', '~> 5.15.1'
 gem 'json', '~> 1.8', '>= 1.8.3'
 # Reduces boot times through caching; required in config/boot.rb

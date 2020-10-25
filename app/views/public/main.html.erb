@@ -1,18 +1,34 @@
-<main role="main" id="home-bannere">
-
-  <!-- Main jumbotron for a primary marketing message or call to action -->
+<main role="main" class="main-banner" id="home-banner">
   <div class="jumbotron">
     <div class="container">
       <h1 class="display-3">Search Australia's home of property</h1>
       <p>Follow this steps & start your next project</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+      <p><a class="btn btn-success" href="#" role="button">View Latest Properties »</a></p>
     </div>
   </div>
 
-  <section id="latest-properties" class= "mb-6">
+  <section id="latest-properties" class= "mb-5">
     <div class="container">
       <div class="row">
+        <div class="col">
+          <h3 class="mb-4">Latest Properties</h3>
+        </div>
+      </div>
+      <div class="row">
         <%= render "properties/list", properties: @properties %>
+      </div>
+    </div>
+  </section>
+
+  <section id="latest-posts" class= "mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h3 class="mb-4">Latest News</h3>
+        </div>
+      </div>
+      <div class="row">
+        <%= render "posts/list", posts: @posts %>
       </div>
     </div>
   </section>

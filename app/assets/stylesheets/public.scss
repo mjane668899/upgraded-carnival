@@ -15,5 +15,20 @@ body {
 }
 
 #home-banner .jumbotron {
-  background-image: image-url("images/banner.jpeg") no-repeat center center;
+  background: url("banner13.jpg") no-repeat center center ;
+  background-size: cover;
+}
+
+#blog-banner .jumbotron {
+  background: url("banner13.jpg") no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  text-shadow: 1px 1px 2px #777;
+}
+
+.main-banner .jumbotron {
+  h1, p {
+    color: #fff;
+    text-shadow: 1px 1px 2px #777;
+  }
 }

@@ -15,21 +15,15 @@
 //= require turbolinks
 //= require_tree .
 
-
-require("@rails/ujs").start()
+require("@rails/ujs")
 
 var jQuery = require("jquery")
+
 global.$ = global.jQuery = jQuery
 window.$ = window.jQuery = jQuery
 
 require ('json')
 require("bootstrap");
 require("@fortawesome/fontawesome-free");
-
-import toastr from "toastr";
-toastr.options = {
-  progressBar: true
-}
-global.toastr  = toastr;
 
 require("./includes/properties");
